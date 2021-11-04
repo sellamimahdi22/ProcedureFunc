@@ -1,0 +1,62 @@
+
+//PROCEDURE//
+PROCEDURE Dot_product( v1,v2 :ARRAY_OF INTEGER, ps:INTEGER )
+VAR
+    i:INTEGER;
+    ps:=0;
+
+BEGIN
+    VAR l1:=v1.length-1;
+    VAR l2:=v2.length-1;
+    IF(l1=l2 ) THEN
+   FOR i FROM 0 TO l1 STEP 1  DO
+       ps=ps+(v1[i]*v2[i])
+   END_FOR
+     
+
+    ELSE
+        write("les deux vecteurs ne sont pas egaux")
+
+    END_IF
+END
+
+
+//FUNCTION  //
+FUNCTION Dot_product(v1,v2 :ARRAY_OF INTEGER) : INTEGER
+VAR
+    ps:INTEGER;
+BEGIN
+     VAR l1:=v1.length-1;
+     VAR l2:=v2.length-1;
+    IF(l1=l2 ) THEN
+      FOR i FROM 0 TO l1 STEP 1  DO
+       ps=ps+(v1[i]*v2[i])
+      END_FOR
+    ELSE
+        write("les deux vecteurs ne sont pas egaux")
+    END_IF
+    RETURN ps ;
+END
+
+
+
+ALGORITHM Dot product
+
+VAR
+ ps:INTEGER;
+ tab:ARRAY_OF array;
+ i,j:INTEGER;
+
+BEGIN
+ 
+ 
+ FOR i FROM 0 TO tab.length-1 STEP 1  DO
+     FOR j FROM i+1 TO tab.length-1 STEP 1  DO
+         Dot_product(tab[i],tab[j],ps);//PROCEDURE//
+         Dot_product(tab[i],tab[j]);//FUNCTION//
+     END_FOR
+ END_FOR
+ IF (ps=0) THEN
+     write("les deux vecteurs sont ortho")
+ END_IF
+END
